@@ -234,6 +234,20 @@
           <polyline points="20 6 9 17 4 12" />
         </svg>
       );
+      const UserIcon = ({ className }) => (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          className={className}
+        >
+          <path
+            fillRule="evenodd"
+            d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+            clipRule="evenodd"
+          />
+        </svg>
+      );
 
       // --- MAIN APP COMPONENT ---
       function ResearcherProfile() {
@@ -280,6 +294,25 @@
               {parts[1]}
             </React.Fragment>
           );
+        };
+
+        const handleEmailClick = (e) => {
+          e.preventDefault();
+          const textArea = document.createElement("textarea");
+          textArea.value = profileData.personal.email;
+          textArea.style.position = "fixed";
+          textArea.style.left = "-9999px";
+          document.body.appendChild(textArea);
+          textArea.focus();
+          textArea.select();
+          try {
+            document.execCommand("copy");
+            setCopiedEmail(true);
+            setTimeout(() => setCopiedEmail(false), 2000);
+          } catch (err) {
+            console.error("Unable to copy", err);
+          }
+          document.body.removeChild(textArea);
         };
 
         return (
@@ -341,7 +374,7 @@
                 </div>
               </div>
 
-               {/* Avatar */}
+              {/* Avatar */}
               {profileData.personal.photoUrl ? (
                 <div className="shrink-0 w-32 h-32 rounded bg-slate-100 overflow-hidden border border-slate-200">
                   <img
@@ -439,5 +472,3 @@
     </script>
   </body>
 </html>
-
-
