@@ -231,29 +231,29 @@
             orcid: "https://orcid.org/0009-0005-1765-0872",
           },
           bio: "Souravh Choursiya is an M.Com student in the Department of Commerce at the University of Delhi. His academic pursuits and research are deeply focused on uncovering actionable insights within Finance and International Business dynamics, bridging the gap between theoretical models and real-world market applications.",
-          interests: ["Finance", "International Business"],
+          interests: ["Finance"],
           publications: [
-            /*   {
+               {
               id: 1,
               year: "2026",
-              title: "Example",
-              authors: "Choursiya, S.",
-              venue: "",
+              title: "Day of the Week Effect in the Vietnam Stock Market: Evidence from the VN Index., 10(2)",
+              authors: "Souravh Choursiya",
+              venue: "International Journal of Research and Innovation in Social Science",
               status: "published",
-              link: "#",
+              link: "https://doi.org/10.47772/IJRISS.2026.10200509",
               type: "Journal Article",
-            }, */
+            },
           ],
         };
 
         const formatAuthors = (authorsStr) => {
-          const parts = authorsStr.split("Choursiya, S.");
+          const parts = authorsStr.split("Souravh Choursiya");
           if (parts.length === 1) return authorsStr;
           return (
             <React.Fragment>
               {parts[0]}
               <strong className="text-slate-900 font-bold">
-                Choursiya, S.
+                Souravh Choursiya
               </strong>
               {parts[1]}
             </React.Fragment>
